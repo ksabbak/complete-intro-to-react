@@ -1,4 +1,4 @@
-public/bundle.js
+var app = angular.module('Todo', []);public/bundle.js
 node_modules/
 .eslintcache
 coverage/
