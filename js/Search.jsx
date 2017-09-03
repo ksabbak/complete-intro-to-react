@@ -2,7 +2,6 @@
 
 import React, { Component } from 'react';
 import ShowCard from './ShowCard';
-import preload from '../data.json';
 
 class Search extends Component {
 	// This is the traditional way to do it - no babel plugin needed. The way you did it for gnomad
@@ -15,9 +14,12 @@ class Search extends Component {
 
 	// 	// this.handleSearchTermChange = this.handleSearchTermChange.bind(this);
 	// }
-
 	state = {
 		searchTerm: ''
+	};
+
+	props: {
+		shows: Array<Show>
 	};
 
 	// This is not standard - a non-standard bind we need the babel plugin about class properties. May be standard now. Keep an eye out. Arrow functions actually just never create a new context so there's no need to bind, so that's exciting.
@@ -38,7 +40,7 @@ class Search extends Component {
 					/>
 				</header>
 				<div>
-					{preload.shows
+					{this.props.shows
 						.filter(
 							show =>
 								`${show.title} ${show.description}`.toUpperCase().indexOf(this.state.searchTerm.toUpperCase()) >= 0

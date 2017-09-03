@@ -20,7 +20,7 @@ const Image = styled.img`
 	margin-right: 10px;
 `;
 
-const ShowCard = (props: { show: { poster: string, title: string, year: string, description: string } }) => (
+const ShowCard = (props: { show: Show }) => (
 	<Wrapper>
 		<Image alt={`${props.show.title} props.Show Poster`} src={`/public/img/posters/${props.show.poster}`} />
 		<div>
