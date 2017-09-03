@@ -1,5 +1,7 @@
+// @flow
+
 import React from 'react';
-import { shape, string } from 'prop-types';
+// import { shape, string } from 'prop-types'; Don't need this with flow
 import styled from 'styled-components';
 
 // goes into a function in styled-components
@@ -18,7 +20,7 @@ const Image = styled.img`
 	margin-right: 10px;
 `;
 
-const ShowCard = props => (
+const ShowCard = (props: { show: { poster: string, title: string, year: string, description: string } }) => (
 	<Wrapper>
 		<Image alt={`${props.show.title} props.Show Poster`} src={`/public/img/posters/${props.show.poster}`} />
 		<div>
@@ -31,13 +33,13 @@ const ShowCard = props => (
 );
 
 // This is great for documentation. But like, not useful for runtime.
-ShowCard.propTypes = {
-	show: shape({
-		poster: string.isRequired,
-		title: string.isRequired,
-		year: string.isRequired,
-		description: string.isRequired
-	}).isRequired
-};
+// ShowCard.propTypes = {
+// 	show: shape({
+// 		poster: string.isRequired,
+// 		title: string.isRequired,
+// 		year: string.isRequired,
+// 		description: string.isRequired
+// 	}).isRequired
+// };
 
 export default ShowCard;

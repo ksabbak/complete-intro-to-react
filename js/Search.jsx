@@ -1,3 +1,5 @@
+// @flow
+
 import React, { Component } from 'react';
 import ShowCard from './ShowCard';
 import preload from '../data.json';
@@ -19,7 +21,7 @@ class Search extends Component {
 	};
 
 	// This is not standard - a non-standard bind we need the babel plugin about class properties. May be standard now. Keep an eye out. Arrow functions actually just never create a new context so there's no need to bind, so that's exciting.
-	handleSearchTermChange = event => {
+	handleSearchTermChange = (event: SyntheticKeyboardEvent & { target: HTMLInputElement }) => {
 		this.setState({ searchTerm: event.target.value });
 	};
 
